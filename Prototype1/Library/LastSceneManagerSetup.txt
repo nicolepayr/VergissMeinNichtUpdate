@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/p1.unity
+- path: D:/FH/3.Semester/GameArt/Game Loop/Assets/Game Loop Example/Scenes/GameLoop.unity
   isLoaded: 1
   isActive: 1
