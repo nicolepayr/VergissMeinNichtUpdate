@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class ChangeList : MonoBehaviour {
 
-
     public bool cat = false;
     public bool pencil = false;
     public bool pills = false;
@@ -14,6 +13,8 @@ public class ChangeList : MonoBehaviour {
     public AudioSource[] sounds;
     public AudioSource audio1;
     public AudioSource audio2;
+
+
     bool PlaySound;
 
     //private Material a;
