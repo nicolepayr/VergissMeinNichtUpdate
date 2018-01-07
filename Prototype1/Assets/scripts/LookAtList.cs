@@ -3,10 +3,13 @@ using System.Collections;
 
 public class LookAtList : MonoBehaviour, ILookAtHandler
 {
-
+  
+    
     public void OnLookatEnter()
     {
         this.GetComponent<Renderer>().material.color = Color.white;
+
+        this.GetComponent<AudioSource>().Play();
     }
 
     public void OnLookatExit()
@@ -18,4 +21,6 @@ public class LookAtList : MonoBehaviour, ILookAtHandler
     {
         Debug.Log("Interaction!");
     }
+
+    
 }
