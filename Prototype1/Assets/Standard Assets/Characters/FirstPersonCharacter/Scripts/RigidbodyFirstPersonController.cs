@@ -1,6 +1,10 @@
 using System;
 using UnityEngine;
 using UnityStandardAssets.CrossPlatformInput;
+<<<<<<< HEAD
+=======
+using Random = UnityEngine.Random;
+>>>>>>> 417df189a175123ff16ffdfc2f5c0dcd68470a01
 
 namespace UnityStandardAssets.Characters.FirstPerson
 {
@@ -8,9 +12,21 @@ namespace UnityStandardAssets.Characters.FirstPerson
     [RequireComponent(typeof (CapsuleCollider))]
     public class RigidbodyFirstPersonController : MonoBehaviour
     {
+<<<<<<< HEAD
         [Serializable]
         public class MovementSettings
         {
+=======
+		public CharacterController m_CharacterController;
+		public AudioClip[] m_FootstepSounds; 
+		public AudioSource m_AudioSource;
+
+        [Serializable]
+        public class MovementSettings
+        {
+			
+
+>>>>>>> 417df189a175123ff16ffdfc2f5c0dcd68470a01
             public float ForwardSpeed = 8.0f;   // Speed when walking forward
             public float BackwardSpeed = 4.0f;  // Speed when walking backwards
             public float StrafeSpeed = 4.0f;    // Speed when walking sideways
@@ -19,6 +35,10 @@ namespace UnityStandardAssets.Characters.FirstPerson
             public float JumpForce = 30f;
             public AnimationCurve SlopeCurveModifier = new AnimationCurve(new Keyframe(-90.0f, 1.0f), new Keyframe(0.0f, 1.0f), new Keyframe(90.0f, 0.0f));
             [HideInInspector] public float CurrentTargetSpeed = 8f;
+<<<<<<< HEAD
+=======
+			private AudioClip[] m_FootstepSounds; 
+>>>>>>> 417df189a175123ff16ffdfc2f5c0dcd68470a01
 
 #if !MOBILE_INPUT
             private bool m_Running;
@@ -136,6 +156,27 @@ namespace UnityStandardAssets.Characters.FirstPerson
             }
         }
 
+<<<<<<< HEAD
+=======
+		private void PlayFootStepAudio()
+		{
+			m_CharacterController = GetComponent<CharacterController>();
+			if (!m_CharacterController.isGrounded)
+			{
+				return;
+			}
+			// pick & play a random footstep sound from the array,
+			// excluding sound at index 0
+			int n = Random.Range(1, m_FootstepSounds.Length);
+			m_AudioSource.clip = m_FootstepSounds[n];
+			m_AudioSource.PlayOneShot(m_AudioSource.clip);
+			// move picked sound to index 0 so it's not picked next time
+			m_FootstepSounds[n] = m_FootstepSounds[0];
+			m_FootstepSounds[0] = m_AudioSource.clip;
+		}
+
+
+>>>>>>> 417df189a175123ff16ffdfc2f5c0dcd68470a01
 
         private void FixedUpdate()
         {
